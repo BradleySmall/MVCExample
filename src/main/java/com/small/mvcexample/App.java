@@ -3,12 +3,17 @@ package com.small.mvcexample;
 import javax.swing.*;
 
 public class App extends JFrame {
-    TextAreaViewer textArea;
-    TextAreaObserver textAreaObserver1;
-    TextAreaObserver textAreaObserver2;
     Controller controller;
-    JButton buttonKillObserver;
-    JButton buttonAddObserver;
+
+    private final TextAreaViewer textArea = new TextAreaViewer(5, 40);
+    private final TextAreaObserver textAreaObserver1 = new TextAreaObserver(5, 40);
+    private final TextAreaObserver textAreaObserver2 = new TextAreaObserver(5, 40);
+    private final JButton buttonKillObserver = new JButton("Kill Observer 1");
+    private final JButton buttonAddObserver = new JButton("Add Observer 1");
+    private final JPanel buttonPanel = new JPanel();
+    private final JScrollPane scrollPane2 = new JScrollPane(textAreaObserver2);
+    private final JScrollPane scrollPane1 = new JScrollPane(textAreaObserver1);
+    private final JScrollPane scrollPane = new JScrollPane(textArea);
 
     App() {
         initGui();
@@ -16,29 +21,25 @@ public class App extends JFrame {
 
     private void initGui() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(500,500);
+        setSize(450,400);
+        setLocationRelativeTo(null);
+
         JPanel panel = new JPanel();
 
-        textArea = new TextAreaViewer(5, 40);
-        JScrollPane scrollPane = new JScrollPane(textArea);
         textArea.setEditable(false);
+        panel.add(new JLabel("View"));
         panel.add(scrollPane);
 
-        textAreaObserver1 = new TextAreaObserver(5, 40);
-        JScrollPane scrollPane1 = new JScrollPane(textAreaObserver1);
         textAreaObserver1.setEditable(false);
+        panel.add(new JLabel("Observer 1"));
         panel.add(scrollPane1);
 
-        textAreaObserver2 = new TextAreaObserver(5, 40);
-        JScrollPane scrollPane2 = new JScrollPane(textAreaObserver2);
         textAreaObserver2.setEditable(false);
+        panel.add(new JLabel("Observer 2"));
         panel.add(scrollPane2);
 
-        JPanel buttonPanel = new JPanel();
-        buttonKillObserver = new JButton("Kill Observer 1");
         buttonKillObserver.addActionListener(e->kill());
         buttonPanel.add(buttonKillObserver);
-        buttonAddObserver = new JButton("Add Observer 1");
         buttonAddObserver.addActionListener(e->add());
         buttonPanel.add(buttonAddObserver);
         panel.add(buttonPanel);
