@@ -1,8 +1,8 @@
-package com.lowes;
+package com.small.mvcexample;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class MVCExample_Test {
     @Test
@@ -17,6 +17,7 @@ public class MVCExample_Test {
         System.out.println(m.getCurrentData());
         m.nextData();
         System.out.println(m.getCurrentData());
+        assertTrue(true);
 
     }
     @Test

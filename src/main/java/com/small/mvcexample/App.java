@@ -1,4 +1,4 @@
-package com.lowes;
+package com.small.mvcexample;
 
 import javax.swing.*;
 
@@ -15,7 +15,7 @@ public class App extends JFrame {
     }
 
     private void initGui() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(500,500);
         JPanel panel = new JPanel();
 

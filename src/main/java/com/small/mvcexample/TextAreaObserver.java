@@ -1,4 +1,4 @@
-package com.lowes;
+package com.small.mvcexample;
 
 import javax.swing.*;
 
@@ -9,6 +9,6 @@ public class TextAreaObserver extends JTextArea implements Observer {
 
     @Override
     public void update(Object data) {
-        append((String)data + "\n");
+        append(data + "\n");
     }
 }

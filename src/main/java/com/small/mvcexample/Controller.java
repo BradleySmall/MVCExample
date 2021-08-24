@@ -1,18 +1,17 @@
-package com.lowes;
+package com.small.mvcexample;
 
-public class Controller {
-    private final Model model;
-    private final View view;
-     public Controller(Model model, View view) {
-        this.model = model;
-        this.view = view;
-    }
+import java.io.Serializable;
+
+public record Controller(Model model, View view) implements Serializable {
+
     public void addObserver(Observer observer) {
         model.addObserver(observer);
     }
+
     public void removeObserver(Observer observer) {
         model.removeObserver(observer);
     }
+
     public void checkNewData() {
         model.nextData();
         view.showViewData(model.getCurrentData());

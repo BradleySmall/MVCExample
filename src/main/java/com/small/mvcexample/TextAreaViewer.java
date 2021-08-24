@@ -1,4 +1,4 @@
-package com.lowes;
+package com.small.mvcexample;
 
 import javax.swing.*;
 
